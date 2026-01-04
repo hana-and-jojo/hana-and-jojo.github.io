@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hana & JoJo's Girly Business</title>
+    <style>
+        :root {
+            --pink: #ff85a2;
+            --light-pink: #fbb1bd;
+            --purple: #9b5de5;
+            --dark-purple: #6a0572;
+            --blue-sparkle: #00f2ff;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            color: #444;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Sparkle Background Effect */
+        .sparkle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .sparkle {
+            position: absolute;
+            background: var(--blue-sparkle);
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0% { transform: scale(0); opacity: 0; }
+            50% { opacity: 0.8; box-shadow: 0 0 5px var(--blue-sparkle); }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            border-bottom: 3px solid white;
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: var(--dark-purple);
+            text-shadow: 2px 2px white;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 2px solid var(--light-pink);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Image Swap Logic */
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .image-secondary {
+            opacity: 0;
+        }
+
+        .product-card:hover .image-secondary {
+            opacity: 1;
+        }
+
+        .product-card:hover .image-primary {
+            opacity: 0;
+        }
+
+        h2 {
+            color: var(--purple);
+            margin: 0.5rem 0;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            color: var(--pink);
+            font-weight: bold;
+        }
+
+        .btn {
+            background: var(--purple);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--pink);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--dark-purple);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sparkle-container" id="sparkle-box"></div>
+
+    <header>
+        <h1>Hana & JoJo's Girly Business</h1>
+        <p>✨ Sparkle, Shine, and Shop ✨</p>
+    </header>
+
+    <div class="container">
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400" class="product-image image-primary" alt="Product 1a">
+                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400" class="product-image image-secondary" alt="Product 1b">
+                </div>
+                <h2>Sparkle Gloss</h2>
+                <p class="price">$12.00</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400" class="product-image image-primary" alt="Product 2a">
+                    <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400" class="product-image image-secondary" alt="Product 2b">
+                </div>
+                <h2>Velvet Scrunchie</h2>
+                <p class="price">$8.00</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=400" class="product-image image-primary" alt="Product 3a">
+                    <img src="https://images.unsplash.com/photo-1614859324967-bdf281fb1855?w=400" class="product-image image-secondary" alt="Product 3b">
+                </div>
+                <h2>Pastel Palette</h2>
+                <p class="price">$25.00</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1591361528623-1199617d686b?w=400" class="product-image image-primary" alt="Product 4a">
+                    <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400" class="product-image image-secondary" alt="Product 4b">
+                </div>
+                <h2>Rose Candle</h2>
+                <p class="price">$15.00</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400" class="product-image image-primary" alt="Product 5a">
+                    <img src="https://images.unsplash.com/photo-1590439471364-192aa70c0b53?w=400" class="product-image image-secondary" alt="Product 5b">
+                </div>
+                <h2>Dream Mist</h2>
+                <p class="price">$18.00</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1576426863848-c21f53c60b19?w=400" class="product-image image-primary" alt="Product 6a">
+                    <img src="https://images.unsplash.com/photo-1584208124888-3a20b9c799e2?w=400" class="product-image image-secondary" alt="Product 6b">
+                </div>
+                <h2>Cozy Socks</h2>
+                <p class="price">$10.00</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Hana & JoJo's Girly Business. Made with love and sparkles.</p>
+    </footer>
+
+    <script>
+        // Generate random blue sparkles
+        const sparkleBox = document.getElementById('sparkle-box');
+        const sparkleCount = 50;
+
+        for (let i = 0; i < sparkleCount; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            
+            // Random positioning
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            const delay = Math.random() * 5;
+            
+            sparkle.style.left = x + '%';
+            sparkle.style.top = y + '%';
+            sparkle.style.animationDelay = delay + 's';
+            
+            sparkleBox.appendChild(sparkle);
+        }
+    </script>
+</body>
+</html>
